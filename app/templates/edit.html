@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <h1>Редактирование заметки</h1>
+    <div class="row">
+        <div class="col-md-3">
+            {% if user.id == post.user_id %}
+            {{ wtf.quick_form(form) }}
+            {% else %}
+            <p>Похоже, вы пытаетесь отредактировать чужую заметку</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

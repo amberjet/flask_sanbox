@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <div class="row">
+        <div class="col-md-4">
+            {{ wtf.quick_form(form) }}
+        </div>
+    </div>
+    {% for post in posts %}
+<table class="table table-hover">
+    <tr>
+           <div><p><a href="{{ url_for('post', id=post.id) }}">{{ post.timestamp}}:</a>
+            <b>{{ post.body }}</b></p></div></td></tr>
+        </table>
+    {% endfor %}
+{% endblock %}

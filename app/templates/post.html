@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+<h1>{{user.username}}</h1>
+<hr>
+<table class="table">
+    <tr>
+       <td> {% if user.id == post.user_id %}
+           <div><p>{{ post.timestamp}}: </p>
+               <p><b>{{ post.body }}</b></p>
+           <p><a href="{{ url_for('edit', id=post.id) }}">Редактировать </a>
+           <span style="color: red;"><a href="{{ url_for('delete', id=post.id) }}">Удалить</a></span></p></div>
+           {% else %}
+           <div><p>Похоже, вы пытаетесь открыть не свою заметку</p></div>
+        {% endif %}</td></tr>
+        </table>
+{% endblock %}
